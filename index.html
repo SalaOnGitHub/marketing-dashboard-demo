@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Vier interaktive Marketing-Dashboards mit fiktiven Beispieldaten: Management, Paid Performance, B2B-Funnel sowie Content und Social.">
+  <meta name="theme-color" content="#6354d7">
+  <title>Pulse Marketing-Dashboards</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+<a href="#dashboards" class="skip-link">Zu den Dashboards</a>
+<div class="site-shell">
+  <header class="site-head">
+    <div><p class="site-title">Marketing-Dashboards</p><p class="site-caption">Vier Perspektiven auf Marketing · Interaktive Demo mit fiktiven Daten</p></div>
+    <div class="site-share"><span id="share-status" class="share-status" role="status"></span><button type="button" id="share-view" class="share-button">Ansicht teilen</button><input id="share-address" class="share-address" aria-label="Link zur aktuellen Ansicht" readonly hidden></div>
+  </header>
+  <nav class="view-nav" aria-label="Dashboard-Ansichten">
+<a id="nav-management" href="#management" data-view-link="management" aria-current="page">Management</a>
+<a id="nav-paid-performance" href="#paid-performance" data-view-link="paid-performance">Paid Performance</a>
+<a id="nav-b2b-funnel" href="#b2b-funnel" data-view-link="b2b-funnel">B2B-Funnel</a>
+<a id="nav-content-social" href="#content-social" data-view-link="content-social">Content & Social</a>
+  </nav>
+  <noscript><p class="noscript">Bitte JavaScript aktivieren, um zwischen den Dashboards zu wechseln und Kennzahlen umzuschalten.</p></noscript>
+  <div id="dashboards">
+<div id="marketing-views" aria-label="Marketing-Dashboard-Ansichten" data-previous-label="Vorherige Ansicht" data-next-label="Nächste Ansicht">
+  <section id="view-management" data-view="management" aria-labelledby="nav-management" data-variant="Management" aria-label="Management-Dashboard">
+    <div class="mk-window" data-design="overview" aria-label="Management-Design">
+      <header class="mk-chrome">
+        <div class="mk-brand"><span class="mk-logo">p.</span><strong>pulse</strong><span class="mk-divider"></span><span class="mk-workspace">Nordlicht / Marketing</span></div>
+        <span class="mk-demo"><span></span>Demo-Workspace</span>
+      </header>
+      <main class="mk-main">
+        <div class="mk-pagehead"><div><div class="mk-eyebrow">REPORTING / MANAGEMENT</div><h1>Marketing auf einen Blick</h1><p class="mk-sub">Wachstum, Wirkung und Budget</p></div><div class="mk-period">Oktober 2026</div></div>
+        <div class="mk-stats">
+          <article class="mk-stat"><span class="mk-label">Zugeordneter Umsatz</span><strong class="mk-number">180.000 €</strong><span class="mk-change">↗ 20,0 % <small>vs. September</small></span></article>
+          <article class="mk-stat"><span class="mk-label">Neue Pipeline</span><strong class="mk-number">720.000 €</strong><span class="mk-change">↗ 12,5 % <small>vs. September</small></span></article>
+          <article class="mk-stat"><span class="mk-label">Neue Leads</span><strong class="mk-number">1.200</strong><span class="mk-change">↗ 25,0 % <small>vs. September</small></span></article>
+          <article class="mk-stat"><span class="mk-label">Marketingausgaben</span><strong class="mk-number">60.000 €</strong><span class="mk-neutral">+9,1 % <small>vs. September</small></span></article>
+        </div>
+        <div class="mk-overview-grid">
+          <section class="mk-panel mk-trend"><div class="mk-panelhead"><div><h2>Entwicklung im Oktober</h2><span class="mk-sub" data-trend-unit>Umsatz je Wochenabschnitt · Tsd. €</span></div><div class="mk-segment" aria-label="Kennzahl für den Verlauf"><button type="button" class="cursor-interaction" data-trend="revenue" aria-pressed="true">Umsatz</button><button type="button" class="cursor-interaction" data-trend="leads" aria-pressed="false">Leads</button></div></div>
+            <div class="mk-weekchart" role="img" aria-label="Umsatz im Oktober: 32, 40, 48 und 60 Tausend Euro in vier Wochenabschnitten">
+              <div class="mk-chart-guide"><span data-top-axis>60</span><span data-mid-axis>30</span><span>0</span></div>
+              <div class="mk-bars">
+                <div class="mk-bar-col"><strong data-bar-value>32</strong><div class="mk-column" style="height:53.333%" data-bar></div><span>1.–7.</span></div>
+                <div class="mk-bar-col"><strong data-bar-value>40</strong><div class="mk-column" style="height:66.667%" data-bar></div><span>8.–14.</span></div>
+                <div class="mk-bar-col"><strong data-bar-value>48</strong><div class="mk-column" style="height:80%" data-bar></div><span>15.–21.</span></div>
+                <div class="mk-bar-col"><strong data-bar-value>60</strong><div class="mk-column" style="height:100%" data-bar></div><span>22.–31.</span></div>
+              </div>
+            </div>
+            <div class="mk-chart-bottom"><span>Wochenabschnitte im Oktober</span><strong data-trend-total aria-live="polite">Gesamt 180.000 €</strong></div>
+          </section>
+          <section class="mk-panel mk-budget"><div class="mk-panelhead"><h2>Budget & Zielerreichung</h2></div>
+            <div class="mk-budgetitem"><div><span>Marketingbudget</span><strong>60.000 / 65.000 €</strong></div><div class="mk-track" role="progressbar" aria-label="Marketingbudget ausgeschöpft" aria-valuenow="92.3" aria-valuemin="0" aria-valuemax="100"><span style="width:92.3%"></span></div><span class="mk-sub">92 % eingesetzt</span></div>
+            <div class="mk-budgetitem"><div><span>Umsatzziel</span><strong>180.000 / 200.000 €</strong></div><div class="mk-track" role="progressbar" aria-label="Umsatzziel erreicht" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"><span style="width:90%"></span></div><span class="mk-sub">90 % erreicht</span></div>
+            <div class="mk-budgetitem"><div><span>Lead-Ziel</span><strong>1.200 / 1.250</strong></div><div class="mk-track" role="progressbar" aria-label="Lead-Ziel erreicht" aria-valuenow="96" aria-valuemin="0" aria-valuemax="100"><span style="width:96%"></span></div><span class="mk-sub">96 % erreicht</span></div>
+          </section>
+        </div>
+        <section class="mk-panel"><div class="mk-panelhead"><h2>Beitrag der Kanäle</h2><span class="mk-sub">Neukunden · Last-Touch-Zuordnung</span></div><div class="mk-scroll"><table class="mk-table"><thead><tr><th>Kanal</th><th>Leads</th><th>Zugeordneter Umsatz</th><th>Umsatzanteil</th></tr></thead><tbody>
+          <tr><td><span class="mk-channelmark">A</span>Paid Ads</td><td>600</td><td>120.000 €</td><td><div class="mk-cellbar"><span><i style="width:66.7%"></i></span>66,7 %</div></td></tr>
+          <tr><td><span class="mk-channelmark">C</span>Content & Social</td><td>240</td><td>32.000 €</td><td><div class="mk-cellbar"><span><i style="width:17.8%"></i></span>17,8 %</div></td></tr>
+          <tr><td><span class="mk-channelmark">S</span>Organic Search</td><td>260</td><td>18.000 €</td><td><div class="mk-cellbar"><span><i style="width:10%"></i></span>10,0 %</div></td></tr>
+          <tr><td><span class="mk-channelmark">E</span>E-Mail & CRM</td><td>100</td><td>10.000 €</td><td><div class="mk-cellbar"><span><i style="width:5.6%"></i></span>5,6 %</div></td></tr>
+        </tbody></table></div></section>
+      </main><footer class="mk-footer"><span>Beispieldaten</span><span>Monatsreport · 31.10.2026</span></footer>
+    </div>
+  </section>
+  <section id="view-paid-performance" data-view="paid-performance" aria-labelledby="nav-paid-performance" data-variant="Paid Performance" aria-label="Paid-Performance-Dashboard" hidden>
+    <div class="mk-window" data-design="paid" aria-label="Paid-Performance-Design">
+      <header class="mk-chrome"><div class="mk-brand"><span class="mk-logo">p.</span><strong>pulse</strong><span class="mk-divider"></span><span class="mk-workspace">Nordlicht / Marketing</span></div><span class="mk-demo"><span></span>Demo-Workspace</span></header>
+      <main class="mk-main">
+        <div class="mk-pagehead"><div><div class="mk-eyebrow">ACQUISITION / PAID MEDIA</div><h1>Performance im Detail</h1><p class="mk-sub">Kanäle vergleichen und Budget steuern</p></div><div class="mk-period">Oktober 2026</div></div>
+        <div class="mk-stats mk-stats-flat">
+          <article class="mk-stat"><span class="mk-label">Werbeausgaben</span><strong class="mk-number">30.000 €</strong><span class="mk-sub">3 Werbekanäle</span></article>
+          <article class="mk-stat"><span class="mk-label">Zugeordneter Umsatz</span><strong class="mk-number">120.000 €</strong><span class="mk-sub">Last-Touch-Zuordnung</span></article>
+          <article class="mk-stat"><span class="mk-label" data-tooltip="Zugeordneter Umsatz geteilt durch Werbeausgaben.">ROAS</span><strong class="mk-number">4,00×</strong><span class="mk-sub">Ziel: 4,00×</span></article>
+          <article class="mk-stat"><span class="mk-label">Kosten je Lead</span><strong class="mk-number">50,00 €</strong><span class="mk-sub">600 Leads gesamt</span></article>
+        </div>
+        <div class="mk-paid-grid">
+          <section class="mk-panel"><div class="mk-panelhead"><h2>Kanal-Performance</h2><span class="mk-sub">Kanal auswählen</span></div><div class="mk-scroll"><table class="mk-table mk-paid-table"><thead><tr><th>Kanal</th><th>Ausgaben</th><th>Umsatz</th><th>ROAS</th><th>Leads</th></tr></thead><tbody>
+            <tr data-channel-row="google" class="mk-row-selected"><td><button type="button" class="mk-rowbutton cursor-interaction" data-channel="google" aria-pressed="true"><span class="mk-channelmark">G</span>Google Ads</button></td><td>14.000 €</td><td>70.000 €</td><td><strong>5,00×</strong></td><td>280</td></tr>
+            <tr data-channel-row="meta"><td><button type="button" class="mk-rowbutton cursor-interaction" data-channel="meta" aria-pressed="false"><span class="mk-channelmark">M</span>Meta Ads</button></td><td>10.000 €</td><td>30.000 €</td><td><strong>3,00×</strong></td><td>250</td></tr>
+            <tr data-channel-row="linkedin"><td><button type="button" class="mk-rowbutton cursor-interaction" data-channel="linkedin" aria-pressed="false"><span class="mk-channelmark">in</span>LinkedIn Ads</button></td><td>6.000 €</td><td>20.000 €</td><td><strong>3,33×</strong></td><td>70</td></tr>
+          </tbody><tfoot><tr><td>Gesamt</td><td>30.000 €</td><td>120.000 €</td><td>4,00×</td><td>600</td></tr></tfoot></table></div>
+            <div class="mk-table-key"><span class="mk-key-dot"></span>ROAS = zugeordneter Umsatz / Werbeausgaben</div>
+          </section>
+          <aside class="mk-channel-detail" aria-live="polite"><div class="mk-eyebrow">KANALDETAILS</div><h2 data-channel-name>Google Ads</h2><div class="mk-detail-kpi"><strong data-channel-roas>5,00×</strong><span>Return on Ad Spend</span></div><div class="mk-detail-pairs"><div><span>Kosten je Lead</span><strong data-channel-cpl>50,00 €</strong></div><div><span>Anteil an Ausgaben</span><strong data-channel-spend>46,7 %</strong></div><div><span>Anteil am Umsatz</span><strong data-channel-revenue>58,3 %</strong></div></div><div class="mk-detail-target"><span data-channel-target>Ziel um 25 % übertroffen</span><small>Vergleich mit ROAS-Ziel 4,00×</small></div></aside>
+        </div>
+        <section class="mk-panel"><div class="mk-panelhead"><div><h2>Effizienzvergleich</h2><span class="mk-sub" data-efficiency-caption>Umsatz je Euro Werbeausgaben · höher ist besser</span></div><div class="mk-segment" aria-label="Kennzahl für den Kanalvergleich"><button type="button" class="cursor-interaction" data-efficiency="roas" aria-pressed="true">ROAS</button><button type="button" class="cursor-interaction" data-efficiency="cpl" aria-pressed="false">Kosten / Lead</button></div></div>
+          <div class="mk-hbars" aria-live="polite"><div class="mk-hbar"><span>Google Ads</span><div class="mk-htrack"><i data-efficiency-bar style="width:100%"></i></div><strong data-efficiency-value>5,00×</strong></div><div class="mk-hbar"><span>Meta Ads</span><div class="mk-htrack"><i data-efficiency-bar style="width:60%"></i></div><strong data-efficiency-value>3,00×</strong></div><div class="mk-hbar"><span>LinkedIn Ads</span><div class="mk-htrack"><i data-efficiency-bar style="width:66.667%"></i></div><strong data-efficiency-value>3,33×</strong></div></div>
+        </section>
+      </main><footer class="mk-footer"><span>Beispieldaten · Medienkosten ohne Agenturhonorare</span><span>Monatsreport · 31.10.2026</span></footer>
+    </div>
+  </section>
+  <section id="view-b2b-funnel" data-view="b2b-funnel" aria-labelledby="nav-b2b-funnel" data-variant="B2B-Funnel" aria-label="B2B-Funnel-Dashboard" hidden>
+    <div class="mk-window" data-design="funnel" aria-label="B2B-Funnel-Design">
+      <header class="mk-chrome"><div class="mk-brand"><span class="mk-logo">p.</span><strong>pulse</strong><span class="mk-divider"></span><span class="mk-workspace">Nordlicht / Marketing</span></div><span class="mk-demo"><span></span>Demo-Workspace</span></header>
+      <main class="mk-main">
+        <div class="mk-pagehead"><div><div class="mk-eyebrow">DEMAND GENERATION / CRM</div><h1>Vom Lead zum Abschluss</h1><p class="mk-sub">Lead-Kohorte Juli 2026 · Stand 31. Oktober</p></div><div class="mk-period">B2B / DACH</div></div>
+        <div class="mk-funnel-stats"><article><span class="mk-label">Leads der Kohorte</span><strong class="mk-number">1.200</strong></article><article><span class="mk-label">Erzeugte Pipeline</span><strong class="mk-number">720.000 €</strong></article><article><span class="mk-label">Gewonnener Umsatz</span><strong class="mk-number">180.000 €</strong></article><article><span class="mk-label">Lead → Abschluss</span><strong class="mk-number">1,5 %</strong></article></div>
+        <section class="mk-panel mk-funnel-panel"><div class="mk-panelhead"><div><h2>Conversion-Funnel</h2><span class="mk-sub">Einzigartige Kontakte bzw. Verkaufschancen je Stufe</span></div><span class="mk-tag">Kohortenanalyse</span></div>
+          <div class="mk-funnel-flow" aria-label="1.200 Leads, 360 MQL, 144 SQL, 72 Opportunities und 18 gewonnene Abschlüsse">
+            <div class="mk-funnel-step"><div class="mk-step-head"><span>01</span></div><strong>1.200</strong><h3>Leads</h3><span class="mk-sub">Alle neuen Kontakte</span><div class="mk-stage-fill" style="--stage:100%"></div><div class="mk-flowrate">30 % <span>→ MQL</span></div></div>
+            <div class="mk-funnel-step"><div class="mk-step-head"><span>02</span></div><strong>360</strong><h3>MQL</h3><span class="mk-sub">Marketingqualifiziert</span><div class="mk-stage-fill" style="--stage:30%"></div><div class="mk-flowrate">40 % <span>→ SQL</span></div></div>
+            <div class="mk-funnel-step"><div class="mk-step-head"><span>03</span></div><strong>144</strong><h3>SQL</h3><span class="mk-sub">Vertriebsqualifiziert</span><div class="mk-stage-fill" style="--stage:12%"></div><div class="mk-flowrate">50 % <span>→ Opportunity</span></div></div>
+            <div class="mk-funnel-step"><div class="mk-step-head"><span>04</span></div><strong>72</strong><h3>Opportunities</h3><span class="mk-sub">Verkaufschancen</span><div class="mk-stage-fill" style="--stage:6%"></div><div class="mk-flowrate">25 % <span>→ Gewonnen</span></div></div>
+            <div class="mk-funnel-step mk-won"><div class="mk-step-head"><span>05</span></div><strong>18</strong><h3>Gewonnen</h3><span class="mk-sub">Abgeschlossene Deals</span><div class="mk-stage-fill" style="--stage:1.5%"></div><div class="mk-flowrate">180.000 € <span>Umsatz</span></div></div>
+          </div>
+          <div class="mk-funnel-note"><span class="mk-key-dot"></span>Balken: Anteil der ursprünglichen 1.200 Leads · Raten: Übergang zur nächsten Stufe</div>
+        </section>
+        <div class="mk-funnel-bottom"><section class="mk-panel"><div class="mk-panelhead"><h2>Wo stockt die Conversion?</h2><span class="mk-sub">Noch nicht zur nächsten Stufe konvertiert</span></div><div class="mk-hbars mk-lossbars"><div class="mk-hbar"><span>Lead → MQL</span><div class="mk-htrack"><i style="width:70%"></i></div><strong>70 %</strong></div><div class="mk-hbar"><span>MQL → SQL</span><div class="mk-htrack"><i style="width:60%"></i></div><strong>60 %</strong></div><div class="mk-hbar"><span>SQL → Opportunity</span><div class="mk-htrack"><i style="width:50%"></i></div><strong>50 %</strong></div><div class="mk-hbar"><span>Opportunity → Deal</span><div class="mk-htrack"><i style="width:75%"></i></div><strong>75 %</strong></div></div></section>
+          <section class="mk-panel mk-deal-card"><div class="mk-eyebrow">SALES-ÜBERGABE</div><h2>72 Opportunities</h2><div class="mk-detail-pairs"><div><span>Ø Dealwert</span><strong>10.000 €</strong></div><div><span>Gewonnene Deals</span><strong>18</strong></div><div><span>Übrige Opportunities</span><strong>54</strong></div><div><span>davon verloren / offen</span><strong>42 / 12</strong></div></div></section>
+        </div>
+      </main><footer class="mk-footer"><span>Beispieldaten · Eine zusammengehörige Lead-Kohorte</span><span>CRM-Snapshot · 31.10.2026</span></footer>
+    </div>
+  </section>
+  <section id="view-content-social" data-view="content-social" aria-labelledby="nav-content-social" data-variant="Content & Social" aria-label="Content-und-Social-Dashboard" hidden>
+    <div class="mk-window" data-design="content" aria-label="Content-und-Social-Design">
+      <header class="mk-chrome"><div class="mk-brand"><span class="mk-logo">p.</span><strong>pulse</strong><span class="mk-divider"></span><span class="mk-workspace">Nordlicht / Marketing</span></div><span class="mk-demo"><span></span>Demo-Workspace</span></header>
+      <main class="mk-main">
+        <div class="mk-pagehead"><div><div class="mk-eyebrow">ORGANIC / CONTENT & SOCIAL</div><h1>Content, der Menschen bewegt</h1><p class="mk-sub">Sichtbarkeit, Interaktion und Website-Beitrag</p></div><div class="mk-period">Oktober 2026</div></div>
+        <div class="mk-content-hero"><div class="mk-hero-metric"><span class="mk-label">Impressionen</span><strong>480.000</strong><span class="mk-sub">LinkedIn, Instagram & YouTube</span></div><div class="mk-hero-mini"><div><span class="mk-label" data-tooltip="23.040 Interaktionen geteilt durch 480.000 Impressionen.">Engagementrate</span><strong>4,8 %</strong><span class="mk-sub">23.040 Interaktionen</span></div><div><span class="mk-label">Website-Sitzungen</span><strong>8.000</strong><span class="mk-sub">aus organischen Social-Posts</span></div><div><span class="mk-label">Gewonnene Leads</span><strong>240</strong><span class="mk-sub">3,0 % der Sitzungen</span></div></div></div>
+        <div class="mk-content-grid"><section class="mk-panel"><div class="mk-panelhead"><div><h2>Kanalvergleich</h2><span class="mk-sub" data-social-caption>Impressionen · organisch</span></div><div class="mk-segment" aria-label="Kennzahl für den Social-Kanalvergleich"><button type="button" class="cursor-interaction" data-social="impressions" aria-pressed="true">Sichtbarkeit</button><button type="button" class="cursor-interaction" data-social="leads" aria-pressed="false">Leads</button></div></div>
+          <div class="mk-social-bars" aria-live="polite"><div><div class="mk-social-barhead"><span><b class="mk-channelmark">in</b>LinkedIn</span><strong data-social-value>180.000</strong></div><div class="mk-social-track"><i style="width:81.818%" data-social-bar></i></div><div class="mk-social-meta"><span>6,0 % Engagement</span><span>3.200 Sitzungen</span></div></div><div><div class="mk-social-barhead"><span><b class="mk-channelmark">ig</b>Instagram</span><strong data-social-value>220.000</strong></div><div class="mk-social-track"><i style="width:100%" data-social-bar></i></div><div class="mk-social-meta"><span>4,5 % Engagement</span><span>1.800 Sitzungen</span></div></div><div><div class="mk-social-barhead"><span><b class="mk-channelmark">yt</b>YouTube</span><strong data-social-value>80.000</strong></div><div class="mk-social-track"><i style="width:36.364%" data-social-bar></i></div><div class="mk-social-meta"><span>2,9 % Engagement</span><span>3.000 Sitzungen</span></div></div></div>
+        </section><section class="mk-panel mk-post-panel"><div class="mk-panelhead"><h2>Top-Content</h2><span class="mk-sub">nach Leads</span></div>
+          <article class="mk-post"><div class="mk-post-thumb mk-thumb-guide"><span>GUIDE</span></div><div><span class="mk-eyebrow">LINKEDIN · DOKUMENT</span><h3>Der B2B-Marketing-Guide</h3><span class="mk-sub">42.000 Impressionen</span></div><div class="mk-post-result"><strong>46</strong><span>Leads</span></div></article>
+          <article class="mk-post"><div class="mk-post-thumb mk-thumb-video"><span>DEMO</span></div><div><span class="mk-eyebrow">YOUTUBE · VIDEO</span><h3>Produktdemo in 3 Minuten</h3><span class="mk-sub">28.000 Impressionen</span></div><div class="mk-post-result"><strong>31</strong><span>Leads</span></div></article>
+          <article class="mk-post"><div class="mk-post-thumb mk-thumb-story"><span>CASE</span></div><div><span class="mk-eyebrow">LINKEDIN · CASE STUDY</span><h3>Wie Nordwerk skaliert</h3><span class="mk-sub">31.000 Impressionen</span></div><div class="mk-post-result"><strong>28</strong><span>Leads</span></div></article>
+          <div class="mk-post-total"><span>Top 3: 105 von 240 Leads</span><strong>43,8 %</strong></div>
+        </section></div>
+        <section class="mk-content-strip"><div><span>Impressionen</span><strong>480.000</strong></div><span class="mk-strip-arrow">→</span><div><span>Website-Sitzungen</span><strong>8.000</strong></div><span class="mk-strip-arrow">→</span><div><span>Leads</span><strong>240</strong></div></section>
+      </main><footer class="mk-footer"><span>Beispieldaten · Engagement = Interaktionen / Impressionen</span><span>Monatsreport · 31.10.2026</span></footer>
+    </div>
+  </section>
+</div>
+
+  </div>
+  <footer class="site-foot"><p>Beispieldaten · Keine Verbindung zu echten Marketingkonten</p><p>Auswahlen werden nur in diesem Browser gespeichert.</p></footer>
+</div>
+</body>
+</html>
