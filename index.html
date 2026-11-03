@@ -6,8 +6,8 @@
   <meta name="description" content="Marketing verstehen: vier interaktive Dashboards mit Zeitvergleichen, Verläufen und verständlichen KPI-Erklärungen. Alle Daten sind fiktiv.">
   <meta name="theme-color" content="#6354d7">
   <title>Pulse Marketing-Dashboards</title>
-  <link rel="stylesheet" href="./styles.css?v=2">
-  <script src="./app.js?v=2" defer></script>
+  <link rel="stylesheet" href="./styles.css?v=3">
+  <script src="./app.js?v=3" defer></script>
 </head>
 <body>
 <a href="#dashboards" class="skip-link">Zu den Dashboards</a>
@@ -23,14 +23,22 @@
     <a id="nav-content-social" href="#content-social" data-view-link="content-social">Content & Social</a>
   </nav>
   <div id="period-controls" class="period-controls" aria-label="Zeitraumvergleich">
-    <div class="period-buttons" aria-label="Berichtszeitraum"><button type="button" data-period="month" aria-pressed="true">Letzter Monat</button><button type="button" data-period="week" aria-pressed="false">Letzte Woche</button></div>
-    <div class="period-copy"><strong id="period-current">01.–31. Oktober 2026</strong><span id="period-previous">im Vergleich zu 01.–30. September 2026</span></div>
+    <div class="period-buttons" aria-label="Berichtszeitraum"><button type="button" data-period="month" aria-pressed="true">Letzter Monat</button><button type="button" data-period="week" aria-pressed="false">Letzte Woche</button><button type="button" id="custom-toggle" aria-expanded="false" aria-controls="custom-range-form">Eigener Zeitraum</button></div>
+    <div class="period-copy" aria-live="polite" aria-atomic="true"><strong id="period-current">01.–31. Oktober 2026</strong><span id="period-previous">im Vergleich zu 01.–30. September 2026</span><span id="period-duration"></span></div>
     <button type="button" class="help-button period-help" data-help="comparison" aria-label="Zeitraumvergleich erklärt" aria-expanded="false" aria-controls="kpi-help">?</button>
+    <form id="custom-range-form" class="custom-range-form" novalidate hidden>
+      <p class="custom-data-note">Verfügbare Beispieldaten: <strong>01.09.–01.11.2026</strong> · Start- und Endtag zählen mit.</p>
+      <div class="custom-date-groups">
+        <fieldset><legend>Aktueller Zeitraum</legend><div class="custom-date-pair"><label for="current-start">Aktuell von<input type="date" id="current-start" name="currentStart" min="2026-09-01" max="2026-11-01" required value="2026-10-01"></label><label for="current-end">Aktuell bis<input type="date" id="current-end" name="currentEnd" min="2026-09-01" max="2026-11-01" required value="2026-10-31"></label></div></fieldset>
+        <fieldset><legend>Vergleichszeitraum</legend><div class="custom-date-pair"><label for="comparison-start">Vergleich von<input type="date" id="comparison-start" name="comparisonStart" min="2026-09-01" max="2026-11-01" required value="2026-09-01"></label><label for="comparison-end">Vergleich bis<input type="date" id="comparison-end" name="comparisonEnd" min="2026-09-01" max="2026-11-01" required value="2026-09-30"></label></div></fieldset>
+      </div>
+      <div class="custom-form-bottom"><p id="custom-error" class="custom-error" role="alert" hidden></p><button type="submit" id="apply-custom-range" class="custom-apply">Zeiträume anwenden</button></div>
+    </form>
   </div>
   <p id="cohort-context" class="cohort-context" hidden>Feste Juli-Kohorte · Entwicklung derselben Kontakte bis 31.10.2026, unabhängig vom Monats- oder Wochenbericht.</p>
   <noscript><p class="noscript">Bitte JavaScript aktivieren, um die Dashboard-Daten, Vergleiche und Erklärungen zu öffnen.</p></noscript>
   <div id="dashboards">
-    <div id="marketing-views" aria-label="Marketing-Dashboard-Ansichten" data-version="2">
+    <div id="marketing-views" aria-label="Marketing-Dashboard-Ansichten" data-version="3">
       <section id="view-management" data-view="management" aria-labelledby="nav-management">
         <div class="mk-window" data-design="overview">
           <header class="mk-chrome"><div class="mk-brand"><span class="mk-logo">p.</span><strong>pulse</strong><span class="mk-divider"></span><span class="mk-workspace">Nordlicht / Marketing</span></div><span class="mk-demo"><span></span>Beispieldaten</span></header>
@@ -39,7 +47,7 @@
             <div class="mk-stats" id="management-stats"></div>
             <div class="mk-overview-grid">
               <section class="mk-panel mk-trend"><div class="mk-panelhead"><div><h2>Was hat sich verändert?</h2><span class="mk-sub" id="trend-caption">Täglicher Umsatz im Vergleich</span></div><div class="mk-segment" aria-label="Kennzahl für den Verlauf"><button type="button" data-trend="revenue" aria-pressed="true">Umsatz</button><button type="button" data-trend="leads" aria-pressed="false">Leads</button></div></div><div id="trend-legend" class="trend-legend"></div><div id="management-chart" class="comparison-chart"></div><div class="chart-day"><label for="chart-day">Tag erkunden</label><input type="range" id="chart-day" min="1" max="31" value="1" aria-describedby="chart-detail"><output id="chart-day-label" for="chart-day">1.</output></div><div id="chart-detail" class="chart-detail" aria-live="polite"></div></section>
-              <section class="mk-panel mk-budget"><div class="mk-panelhead"><h2>Budget & Zielerreichung</h2></div><div id="budget-items"></div><p class="panel-footnote">Ziele gelten für den ausgewählten Berichtszeitraum.</p></section>
+              <section class="mk-panel mk-budget"><div class="mk-panelhead"><h2 id="budget-title">Budget & Zielerreichung</h2></div><div id="budget-items"></div><p class="panel-footnote" id="budget-note">Ziele gelten für den ausgewählten Berichtszeitraum.</p></section>
             </div>
             <section class="mk-panel"><div class="mk-panelhead"><h2>Beitrag der Kanäle</h2><span class="mk-sub">Neukunden · Last-Touch-Zuordnung <button type="button" class="help-button" data-help="attribution" aria-label="Last-Touch-Zuordnung erklärt" aria-expanded="false" aria-controls="kpi-help">?</button></span></div><div class="mk-scroll"><table class="mk-table"><thead><tr><th>Kanal</th><th>Leads</th><th>Zugeordneter Umsatz</th><th>Umsatzanteil</th></tr></thead><tbody id="management-channels"></tbody></table></div></section>
           </main><footer class="mk-footer"><span>Fiktive Beispieldaten · keine realen Kampagnenergebnisse</span><span data-report-period></span></footer>
@@ -62,7 +70,7 @@
           <main class="mk-main">
             <div class="mk-pagehead"><div><div class="mk-eyebrow">DEMAND GENERATION / CRM</div><h1>Vom Lead zum Abschluss</h1><p class="mk-sub">Lead-Kohorte Juli 2026 · Stand 31. Oktober <button type="button" class="help-button" data-help="cohort" aria-label="Lead-Kohorte erklärt" aria-expanded="false" aria-controls="kpi-help">?</button></p></div><span class="mk-period">B2B / DACH</span></div>
             <div id="funnel-stats" class="mk-stats"></div>
-            <section class="mk-panel"><div class="mk-panelhead"><div><h2>Die Juli-Kohorte entwickelt sich weiter</h2><span class="mk-sub">Kumulierte Abschlüsse derselben 1.200 Kontakte · Monatsendstände</span></div></div><div id="cohort-chart" class="cohort-chart"></div><p class="panel-footnote">18 gewonnene Deals bis 31. Oktober · davon 7 seit30.September. Kein Vergleich unterschiedlich alter Kohorten.</p></section>
+            <section class="mk-panel"><div class="mk-panelhead"><div><h2>Die Juli-Kohorte entwickelt sich weiter</h2><span class="mk-sub">Kumulierte Abschlüsse derselben 1.200 Kontakte · Monatsendstände</span></div></div><div id="cohort-chart" class="cohort-chart"></div><p class="panel-footnote">18 gewonnene Deals bis 31. Oktober · davon 7 seit 30. September. Kein Vergleich unterschiedlich alter Kohorten.</p></section>
             <section class="mk-panel mk-funnel-panel"><div class="mk-panelhead"><h2>Conversion-Funnel</h2><span class="mk-tag">Stand 31.10.2026</span></div><div id="funnel-flow" class="mk-funnel-flow"></div><div class="mk-funnel-note">Balken: Anteil der ursprünglichen 1.200 Leads · Raten: Übergang zur nächsten Stufe.</div></section>
             <div class="mk-funnel-bottom"><section class="mk-panel"><div class="mk-panelhead"><h2>Wo stockt die Conversion?</h2><span class="mk-sub">Noch nicht zur nächsten Stufe konvertiert</span></div><div id="funnel-losses" class="mk-hbars mk-lossbars"></div></section><section class="mk-panel mk-deal-card"><div class="mk-eyebrow">SALES-ÜBERGABE</div><h2>72 Opportunities</h2><div class="mk-detail-pairs"><div><span>Ø Dealwert</span><strong>10.000 €</strong></div><div><span>Gewonnene Deals</span><strong>18</strong></div><div><span>Übrige Opportunities</span><strong>54</strong></div><div><span>davon verloren / offen</span><strong>42 / 12</strong></div></div></section></div>
           </main><footer class="mk-footer"><span>Fiktive Beispieldaten · eine zusammengehörige Lead-Kohorte</span><span>CRM-Snapshot · 31.10.2026</span></footer>

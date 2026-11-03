@@ -13,7 +13,11 @@ Direkt zu [Management](https://salaongithub.github.io/marketing-dashboard-demo/#
 
 ## Zeitvergleiche und Erklärungen
 
-„Letzter Monat“ vergleicht den vollständigen Oktober 2026 mit September 2026. „Letzte Woche“ vergleicht 26. Oktober–1. November mit 19.–25. Oktober 2026. Alle periodischen KPIs, Tabellen und Verläufe ändern sich gemeinsam. Die Tagesdaten stammen aus demselben fiktiven Datensatz; überlappende Kalendertage bleiben beim Umschalten identisch. Monatswerte sind Summen über 31 bzw. 30 Tage. ROAS, Kosten je Lead und Engagementrate werden aus den jeweiligen Summen berechnet.
+„Letzter Monat“ vergleicht den vollständigen Oktober 2026 mit September 2026. „Letzte Woche“ vergleicht 26. Oktober–1. November mit 19.–25. Oktober 2026. Unter **„Eigener Zeitraum“** lassen sich aktueller Zeitraum und Vergleich unabhängig mit vier Datumsfeldern wählen. Verfügbare Beispieldaten: **1. September bis 1. November 2026 einschließlich**. Auch überlappende, unterschiedlich lange und eintägige Bereiche sind erlaubt. Start- und Endtag zählen mit; Tagesgrenzen werden unabhängig von Sommer-/Winterzeit als UTC-Kalendertage verarbeitet.
+
+Alle periodischen KPIs, Tabellen, Content-Beiträge und Verläufe werden aus denselben täglichen Beispieldaten berechnet; ein Kalendertag bleibt beim Umschalten identisch. ROAS, Kosten je Lead und Engagementrate entstehen aus den jeweiligen Summen. Für eigene Zeiträume sind keine Budget- oder Ergebnisziele hinterlegt; stattdessen zeigt die Budgetkarte einen Ausgabenvergleich. Unterschiedliche Tagesanzahlen werden sichtbar ausgewiesen, da Summen von der Dauer abhängen.
+
+Geteilte Links enthalten die angewendeten Datumsfilter als URL-Parameter: period, from, to, compareFrom und compareTo. Gültige Filter im Link haben Vorrang vor lokal gespeicherten Auswahlen. Die Schnellfilter entfernen eigene Datumsparameter; die Navigation zwischen den vier Ansichten behält die angewendeten Filter.
 
 Änderungen von Raten stehen in Prozentpunkten. Die feste Juli-Kohorte ist bewusst unabhängig vom Wochen-/Monatsumschalter. Die ?-Schaltflächen erklären Begriffe, Berechnung und Grenzen per Hover, Tastaturfokus oder Klick/Tap; Escape schließt die Erklärung.
 
