@@ -3,17 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Marketing verstehen: vier interaktive Dashboards mit Zeitvergleichen, Verläufen und verständlichen KPI-Erklärungen. Alle Daten sind fiktiv.">
+  <meta name="description" content="Marketing verstehen: interaktive Dashboards mit Zeitvergleichen und KPI-Erklärungen sowie praktische Marketing-Prompts zum Anpassen und Kopieren. Alle Dashboard-Daten sind fiktiv.">
   <meta name="theme-color" content="#6354d7">
   <title>Pulse Marketing-Dashboards</title>
-  <link rel="stylesheet" href="./styles.css?v=3">
-  <script src="./app.js?v=3" defer></script>
+  <link rel="stylesheet" href="./styles.css?v=4">
+  <script src="./app.js?v=4" defer></script>
+  <script src="./prompts-data.js?v=4" defer></script>
+  <script src="./prompts.js?v=4" defer></script>
 </head>
 <body>
 <a href="#dashboards" class="skip-link">Zu den Dashboards</a>
 <div class="site-shell">
   <header class="site-head">
-    <div><p class="site-title">Marketing-Dashboards</p><p class="site-caption">Vier Perspektiven auf Marketing · Interaktive Demo mit fiktiven Daten</p></div>
+    <div><p class="site-title">Marketing-Dashboards</p><p class="site-caption">Marketing verstehen · Interaktive Dashboards & praktische KI-Vorlagen</p></div>
     <div class="site-share"><span id="share-status" class="share-status" role="status"></span><button type="button" id="share-view" class="share-button">Ansicht teilen</button><input id="share-address" class="share-address" aria-label="Link zur aktuellen Ansicht" readonly hidden></div>
   </header>
   <nav class="view-nav" aria-label="Dashboard-Ansichten">
@@ -21,6 +23,7 @@
     <a id="nav-paid-performance" href="#paid-performance" data-view-link="paid-performance">Paid Performance</a>
     <a id="nav-b2b-funnel" href="#b2b-funnel" data-view-link="b2b-funnel">B2B-Funnel</a>
     <a id="nav-content-social" href="#content-social" data-view-link="content-social">Content & Social</a>
+    <a id="nav-marketing-prompts" href="#marketing-prompts" data-view-link="marketing-prompts">Marketing-Prompts <span class="nav-new">Neu</span></a>
   </nav>
   <div id="period-controls" class="period-controls" aria-label="Zeitraumvergleich">
     <div class="period-buttons" aria-label="Berichtszeitraum"><button type="button" data-period="month" aria-pressed="true">Letzter Monat</button><button type="button" data-period="week" aria-pressed="false">Letzte Woche</button><button type="button" id="custom-toggle" aria-expanded="false" aria-controls="custom-range-form">Eigener Zeitraum</button></div>
@@ -38,7 +41,7 @@
   <p id="cohort-context" class="cohort-context" hidden>Feste Juli-Kohorte · Entwicklung derselben Kontakte bis 31.10.2026, unabhängig vom Monats- oder Wochenbericht.</p>
   <noscript><p class="noscript">Bitte JavaScript aktivieren, um die Dashboard-Daten, Vergleiche und Erklärungen zu öffnen.</p></noscript>
   <div id="dashboards">
-    <div id="marketing-views" aria-label="Marketing-Dashboard-Ansichten" data-version="3">
+    <div id="marketing-views" aria-label="Marketing-Dashboards und Prompt-Bibliothek" data-version="4">
       <section id="view-management" data-view="management" aria-labelledby="nav-management">
         <div class="mk-window" data-design="overview">
           <header class="mk-chrome"><div class="mk-brand"><span class="mk-logo">p.</span><strong>pulse</strong><span class="mk-divider"></span><span class="mk-workspace">Nordlicht / Marketing</span></div><span class="mk-demo"><span></span>Beispieldaten</span></header>
@@ -85,6 +88,37 @@
             <div class="mk-content-grid"><section class="mk-panel"><div class="mk-panelhead"><div><h2>Kanalvergleich</h2><span class="mk-sub" id="social-caption"></span></div><div class="mk-segment" aria-label="Kennzahl für den Social-Kanalvergleich"><button type="button" data-social="impressions" aria-pressed="true">Sichtbarkeit</button><button type="button" data-social="leads" aria-pressed="false">Leads</button></div></div><div id="social-bars" class="mk-social-bars"></div><div class="mini-legend"><span class="legend-line"></span>Aktuell <span class="legend-line previous"></span>Vergleichszeitraum</div></section><section class="mk-panel mk-post-panel"><div class="mk-panelhead"><h2>Top-Content</h2><span class="mk-sub">nach Leads</span></div><div id="social-posts"></div></section></div>
             <section id="social-journey" class="mk-content-strip"></section>
           </main><footer class="mk-footer"><span>Fiktive Beispieldaten · Engagement = Interaktionen / Impressionen</span><span data-report-period></span></footer>
+        </div>
+      </section>
+      <section id="view-marketing-prompts" data-view="marketing-prompts" aria-labelledby="nav-marketing-prompts" hidden>
+        <div class="mk-window prompt-window">
+          <header class="mk-chrome"><div class="mk-brand"><span class="mk-logo">p.</span><strong>pulse</strong><span class="mk-divider"></span><span class="mk-workspace">Marketing / Werkzeugkasten</span></div><span class="prompt-library-badge">Prompt-Bibliothek</span></header>
+          <main class="mk-main" id="prompt-library">
+            <div class="mk-pagehead prompt-pagehead"><div><div class="mk-eyebrow">VON DER IDEE ZUM GUTEN BRIEFING</div><h1>Ein besserer Start für deine KI.</h1><p class="mk-sub">Marketing-Prompts auswählen, anpassen und im KI-Tool deiner Wahl verwenden.</p></div><div class="prompt-count-stamp"><strong id="prompt-total">12</strong><span>Vorlagen<br>für deinen Alltag</span></div></div>
+            <ol class="prompt-workflow" aria-label="So verwendest du die Vorlagen"><li><span>1</span><div><strong>Aufgabe wählen</strong><small>Was möchtest du erreichen?</small></div></li><li><span>2</span><div><strong>Kontext ergänzen</strong><small>Platzhalter mit deinen Angaben ersetzen.</small></div></li><li><span>3</span><div><strong>Kopieren & loslegen</strong><small>Im KI-Tool einfügen und Ergebnis prüfen.</small></div></li></ol>
+            <section class="prompt-explorer" aria-label="Vorlagen finden">
+              <div class="prompt-search-row"><div class="prompt-search-field"><label for="prompt-search">Welche Marketing-Aufgabe steht an?</label><input type="search" id="prompt-search" placeholder="Zum Beispiel: Content-Plan, Leads, Landingpage …" autocomplete="off" aria-controls="prompt-list"></div><p id="prompt-results" class="prompt-results" role="status" aria-live="polite"></p></div>
+              <div id="prompt-categories" class="prompt-categories" role="group" aria-label="Nach Kategorie filtern"></div>
+            </section>
+            <div class="prompt-layout">
+              <div class="prompt-list-column"><div id="prompt-list" class="prompt-list" aria-label="Marketing-Vorlagen"></div><div id="prompt-empty" class="prompt-empty" hidden><strong>Keine Vorlage gefunden.</strong><p>Versuche einen anderen Suchbegriff oder wähle „Alle“.</p><button type="button" id="prompt-clear-filters" class="prompt-button">Filter zurücksetzen</button></div></div>
+              <section id="prompt-detail" class="prompt-detail mk-panel" aria-labelledby="prompt-detail-title">
+                <div class="prompt-detail-heading"><span id="prompt-detail-category" class="prompt-category-tag"></span><span id="prompt-draft-state" class="prompt-draft-state"></span></div>
+                <h2 id="prompt-detail-title" tabindex="-1"></h2><p id="prompt-use-when" class="prompt-use-when"></p>
+                <div class="prompt-brief"><div><h3>Das brauchst du</h3><ul id="prompt-inputs"></ul></div><div><h3>Das bekommst du</h3><p id="prompt-output"></p></div></div>
+                <div class="prompt-editor-heading"><label for="prompt-editor">Deine Vorlage</label><button type="button" id="prompt-reset" class="prompt-reset" disabled>Original wiederherstellen</button></div>
+                <p class="prompt-editor-help" id="prompt-editor-help">Ersetze Angaben in [eckigen Klammern]. Hier wird ein Prompt vorbereitet; die KI wird in deinem eigenen Tool ausgeführt.</p>
+                <div id="prompt-context-tools" class="prompt-context-tools" hidden><button type="button" id="prompt-insert-context" class="prompt-button">Aktuellen Dashboard-Vergleich einfügen</button><p>Übernimmt die zuletzt angewendeten Datumsfilter und fiktiven KPI-Zahlen aus den Dashboards.</p></div>
+                <textarea id="prompt-editor" rows="17" spellcheck="false" aria-describedby="prompt-editor-help prompt-storage-note"></textarea>
+                <div class="prompt-copy-row"><button type="button" id="prompt-copy" class="prompt-button prompt-primary">Prompt kopieren <span aria-hidden="true">↗</span></button><p id="prompt-copy-status" class="prompt-copy-status" role="status" aria-live="polite"></p></div>
+                <p id="prompt-storage-note" class="prompt-storage-note"></p>
+                <div class="prompt-next-step"><span>Danach</span><p id="prompt-next-step"></p></div>
+                <p id="prompt-source" class="prompt-source"></p>
+              </section>
+            </div>
+            <aside class="prompt-guidance"><strong>Ein guter Entwurf ist der Anfang.</strong><p>Die Vorlagen liefern Entwürfe, keine fertigen Fakten. Nutze anonymisierte Angaben und prüfe Zahlen, Aussagen und Freigaben vor der Verwendung.</p></aside>
+            <section class="prompt-sources" aria-labelledby="prompt-sources-title"><h2 id="prompt-sources-title">Inspiration & Weiterlesen</h2><p>Eigenständig formulierte Vorlagen für typische Marketing-Aufgaben. Einzelne Ideen sind als Inspiration gekennzeichnet.</p><div id="prompt-source-links"></div></section>
+          </main><footer class="mk-footer"><span>Vorlagen anpassen · im KI-Tool deiner Wahl verwenden</span><span>Keine KI-Anfragen auf dieser Website</span></footer>
         </div>
       </section>
     </div>

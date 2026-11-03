@@ -4,7 +4,7 @@
   const root = $('marketing-views');
   const state = { period:'month', custom:null, trend:'revenue', channel:'google', efficiency:'roas', social:'impressions', day:1 };
   const storageKey = 'pulse-marketing-demo-v3';
-  const names = { management:'Management', 'paid-performance':'Paid Performance', 'b2b-funnel':'B2B-Funnel', 'content-social':'Content & Social' };
+  const names = { management:'Management', 'paid-performance':'Paid Performance', 'b2b-funnel':'B2B-Funnel', 'content-social':'Content & Social', 'marketing-prompts':'Marketing-Prompts' };
   const channelNames = ['Google Ads','Meta Ads','LinkedIn Ads'];
   const channelKeys = ['google','meta','linkedin'];
   const socialNames = ['LinkedIn','Instagram','YouTube'];
@@ -123,6 +123,15 @@
   function getPeriod(){
     const ranges=rangesForState(),preset=periods[state.period],now=aggregateRange(ranges.currentStart,ranges.currentEnd),prev=aggregateRange(ranges.comparisonStart,ranges.comparisonEnd);
     return {current:preset?preset.current:rangeLabel(ranges.currentStart,ranges.currentEnd),previous:preset?preset.previous:rangeLabel(ranges.comparisonStart,ranges.comparisonEnd),short:preset?preset.short:rangeLabel(ranges.currentStart,ranges.currentEnd),previousShort:preset?preset.previousShort:rangeLabel(ranges.comparisonStart,ranges.comparisonEnd),start:ranges.currentStart,prevStart:ranges.comparisonStart,length:dayNumber(ranges.currentEnd)-dayNumber(ranges.currentStart)+1,prevLength:dayNumber(ranges.comparisonEnd)-dayNumber(ranges.comparisonStart)+1,target:preset?preset.target:null,now,prev,nowTotals:totals(now),prevTotals:totals(prev),ranges};
+  }
+  // Explicit, local bridge for the prompt editor. It reads only the applied filters.
+  function getPromptContext(){
+    const p=getPeriod(),a=p.nowTotals,b=p.prevTotals;
+    const number=value=>Number.isFinite(value)?value.toLocaleString('de-DE',{maximumFractionDigits:2}):'nicht verfügbar';
+    const days=length=>length+' '+(length===1?'Kalendertag':'Kalendertage');
+    const percent=value=>Number.isFinite(value)?value*100:null;
+    const rows=[['Marketing-Ausgaben',a.cost,b.cost,'EUR'],['Zugeordneter Umsatz',a.revenue,b.revenue,'EUR'],['Neue Pipeline',a.pipeline,b.pipeline,'EUR'],['Leads gesamt',a.leads,b.leads,''],['Paid-Ausgaben',a.paid.spend,b.paid.spend,'EUR'],['Paid-Umsatz',a.paid.revenue,b.paid.revenue,'EUR'],['Paid-Leads',a.paid.leads,b.paid.leads,''],['Paid-ROAS (EUR Umsatz je EUR Werbeausgaben)',a.paid.roas,b.paid.roas,'×'],['Paid-Kosten pro Lead',a.paid.cpl,b.paid.cpl,'EUR'],['Social-Impressionen',a.social.impressions,b.social.impressions,''],['Social-Interaktionen',a.social.interactions,b.social.interactions,''],['Social-Engagementrate',percent(a.social.engagement),percent(b.social.engagement),'%']];
+    return ['--- Dashboard-Vergleich (fiktive Beispieldaten) ---','Ausschließlich erfundene, aggregierte Demo-Daten; keine realen Kundendaten.','Aktuell: '+p.ranges.currentStart+' bis '+p.ranges.currentEnd+' ('+days(p.length)+', einschließlich).','Vergleich: '+p.ranges.comparisonStart+' bis '+p.ranges.comparisonEnd+' ('+days(p.prevLength)+', einschließlich).','Kennzahl | Aktuell | Vergleich',...rows.map(([label,current,previous,unit])=>label+' | '+number(current)+(unit?' '+unit:'')+' | '+number(previous)+(unit?' '+unit:'')),'Summen hängen von der Periodenlänge ab. Raten aus Summen berechnen; Änderungen von Raten in Prozentpunkten beschreiben.','Umsatzzuordnung belegt keine Ursache. Keine Aussage zur statistischen Signifikanz ohne geeignete Rohdaten.','--- Ende Dashboard-Vergleich ---'].join('\n');
   }
   const allPaid=key=>[0,1,2].map(i=>'paid.'+i+'.'+key);
   const allSocial=key=>[0,1,2].map(i=>'social.'+i+'.'+key);
@@ -308,7 +317,8 @@
   }catch(_){}
   const urlSelection=selectionFromUrl(new URL(location.href));
   if(urlSelection){if(urlSelection.invalid){state.period='month';state.custom=null;initialRangeError='Der Link enthält ungültige Datumsfilter. Es wird der Monatsvergleich gezeigt. Bitte die Zeiträume neu auswählen.';}else{state.period=urlSelection.period;state.custom=urlSelection.custom;}}
-  function showView(){const slug=location.hash.slice(1),selected=Object.hasOwn(names,slug)?slug:'management';document.querySelectorAll('[data-view]').forEach(panel=>panel.hidden=panel.dataset.view!==selected);document.querySelectorAll('[data-view-link]').forEach(link=>{if(link.dataset.viewLink===selected)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');});$('period-controls').hidden=selected==='b2b-funnel';$('cohort-context').hidden=selected!=='b2b-funnel';document.title=names[selected]+' | Pulse Marketing-Dashboards';closeHelp(false);if(selected==='management')requestAnimationFrame(renderChart);}
+  window.pulseGetPromptContext = getPromptContext;
+  function showView(){const slug=location.hash.slice(1),selected=Object.hasOwn(names,slug)?slug:'management';document.querySelectorAll('[data-view]').forEach(panel=>panel.hidden=panel.dataset.view!==selected);document.querySelectorAll('[data-view-link]').forEach(link=>{if(link.dataset.viewLink===selected)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');});$('period-controls').hidden=selected==='b2b-funnel'||selected==='marketing-prompts';$('cohort-context').hidden=selected!=='b2b-funnel';document.title=names[selected]+' | Pulse Marketing-Dashboards';closeHelp(false);if(selected==='management')requestAnimationFrame(renderChart);}
   document.addEventListener('click',event=>{const button=event.target.closest('button');if(!button)return;if(button.dataset.period){state.period=button.dataset.period;state.custom=null;state.day=1;closeHelp(false);setCustomOpen(false);showRangeError('');fillDateForm();renderPeriod();syncFilterUrl();save();}if(button.dataset.trend){state.trend=button.dataset.trend;renderChart();save();}if(button.dataset.channel){state.channel=button.dataset.channel;renderPaid();save();}if(button.dataset.efficiency){state.efficiency=button.dataset.efficiency;renderPaid();save();}if(button.dataset.social){state.social=button.dataset.social;renderSocial();save();}});
   $('custom-toggle').addEventListener('click',()=>{const opening=$('custom-range-form').hidden;if(opening&&$('custom-error').hidden)fillDateForm();setCustomOpen(opening);});
   $('custom-range-form').addEventListener('submit',event=>{

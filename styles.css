@@ -339,3 +339,88 @@ button{cursor:pointer}
 @media(min-width:851px){.period-controls{flex-wrap:wrap}.period-controls>.period-copy{flex:1;min-width:220px}}
 @media(max-width:850px){.period-controls>.period-copy{order:0;flex-basis:calc(100% - 50px)}.period-controls>.period-help{margin-top:4px;margin-left:auto}.custom-range-form{order:4}}
 @media(max-width:600px){.custom-date-groups{grid-template-columns:1fr;gap:18px}.period-buttons{width:100%}.period-buttons button{flex:1;padding:9px 8px;font-size:11px}.period-buttons #custom-toggle{flex-basis:100%}.custom-date-pair{gap:10px}.custom-date-pair input{font-size:16px;padding:9px 7px}.custom-form-bottom{align-items:flex-start}.custom-error{flex-basis:100%;min-width:0}.custom-apply{width:100%;margin-left:0;min-height:44px}}
+
+/* Prompt library: local, editable templates; no model execution. */
+.nav-new{font-size:9px;line-height:1;padding:3px 5px;border-radius:4px;margin-left:5px;background:light-dark(#e9e5ff,#38304f);color:light-dark(#6354b8,#c1b6ff);vertical-align:middle}
+#marketing-views .prompt-window{min-height:850px}
+#marketing-views .prompt-library-badge{font-size:11px;color:var(--mk-accent);border:1px solid var(--mk-line);border-radius:20px;padding:5px 10px;white-space:nowrap}
+#marketing-views .prompt-pagehead{align-items:flex-start;margin-bottom:0}
+#marketing-views .prompt-pagehead h1{font-size:29px;letter-spacing:-.85px}
+#marketing-views .prompt-pagehead .mk-sub{max-width:560px;font-size:13px;line-height:1.6}
+#marketing-views .prompt-count-stamp{display:flex;align-items:center;gap:11px;border-left:1px solid var(--mk-line);padding-left:22px;margin-top:6px;color:var(--mk-muted);flex:none;font-size:11px;line-height:1.5}
+#marketing-views .prompt-count-stamp strong{font-size:36px;line-height:1;color:var(--mk-accent);letter-spacing:-1.5px}
+#marketing-views .prompt-workflow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));list-style:none;margin:0;padding:15px 17px;gap:20px;border:1px solid var(--mk-line);border-radius:12px;background:var(--mk-surface)}
+#marketing-views .prompt-workflow li{display:flex;gap:10px;align-items:center;min-width:0}
+#marketing-views .prompt-workflow li>span{height:28px;width:28px;border-radius:50%;display:grid;place-items:center;background:var(--mk-accent-soft);color:var(--mk-accent);font-size:12px;font-weight:650;flex:none}
+#marketing-views .prompt-workflow strong,#marketing-views .prompt-workflow small{display:block}
+#marketing-views .prompt-workflow strong{font-size:12px}
+#marketing-views .prompt-workflow small{font-size:11px;margin-top:2px}
+#marketing-views .prompt-explorer{display:flex;flex-direction:column;gap:12px}
+#marketing-views .prompt-search-row{display:flex;align-items:flex-end;gap:20px;justify-content:space-between}
+#marketing-views .prompt-search-field{width:min(100%,540px)}
+#marketing-views .prompt-search-field label{display:block;font-size:12px;font-weight:650;margin-bottom:7px}
+#marketing-views #prompt-search{display:block;width:100%;min-width:0;font:inherit;font-size:13px;padding:11px 13px;border:1px solid var(--mk-line);border-radius:9px;background:var(--mk-surface);color:var(--mk-text);min-height:43px}
+#marketing-views #prompt-search::placeholder{color:var(--mk-muted);opacity:1}
+#marketing-views .prompt-results{flex:none;padding-bottom:11px;color:var(--mk-muted);font-size:11px;font-variant-numeric:tabular-nums}
+#marketing-views .prompt-categories{display:flex;flex-wrap:wrap;gap:6px}
+#marketing-views .prompt-categories button{font:inherit;font-size:11px;border:1px solid var(--mk-line);background:var(--mk-surface);color:var(--mk-muted);padding:7px 11px;border-radius:7px;min-height:34px}
+#marketing-views .prompt-categories button[aria-pressed=true]{background:var(--mk-accent);border-color:var(--mk-accent);color:var(--mk-on-accent)}
+#marketing-views .prompt-layout{display:grid;grid-template-columns:minmax(250px,.8fr) minmax(0,1.55fr);gap:18px;align-items:start;min-width:0}
+#marketing-views .prompt-list-column{min-width:0}
+#marketing-views .prompt-list{display:grid;gap:9px;max-height:1080px;overflow-y:auto;padding:3px 5px 3px 3px;scrollbar-width:thin;scrollbar-color:var(--mk-line) transparent}
+#marketing-views .prompt-card{position:relative;display:flex;flex-direction:column;gap:5px;font:inherit;color:var(--mk-text);background:var(--mk-surface);border:1px solid var(--mk-line);border-radius:11px;padding:14px 15px;text-align:left;min-width:0;cursor:pointer;transition:border-color .15s,background .15s}
+#marketing-views .prompt-card:hover{border-color:var(--mk-accent)}
+#marketing-views .prompt-card[aria-pressed=true]{background:var(--mk-accent-soft);border-color:var(--mk-accent);box-shadow:inset 3px 0 0 var(--mk-accent)}
+#marketing-views .prompt-card-category{font-size:9px;letter-spacing:.55px;text-transform:uppercase;font-weight:650;color:var(--mk-muted)}
+#marketing-views .prompt-card[aria-pressed=true] .prompt-card-category{color:var(--mk-accent)}
+#marketing-views .prompt-card>strong{font-size:14px;line-height:1.5;letter-spacing:-.15px}
+#marketing-views .prompt-card-description{font-size:11px;line-height:1.6;color:var(--mk-muted)}
+#marketing-views .prompt-card-action{display:flex;justify-content:space-between;align-items:center;font-size:10px;color:var(--mk-accent);margin-top:5px;font-weight:600}
+#marketing-views .prompt-card-action>span{font-size:16px;line-height:1}
+#marketing-views .prompt-empty{padding:22px 15px;border:1px dashed var(--mk-line);border-radius:12px;color:var(--mk-muted);font-size:12px}
+#marketing-views .prompt-empty strong{color:var(--mk-text)}
+#marketing-views .prompt-empty p{margin:7px 0 15px}
+#marketing-views .prompt-detail{padding:23px;min-width:0;box-shadow:0 5px 20px light-dark(#20243104,#00000009)}
+#marketing-views .prompt-detail-heading{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+#marketing-views .prompt-category-tag{border-radius:5px;background:var(--mk-accent-soft);color:var(--mk-accent);padding:4px 7px;font-size:10px;font-weight:600}
+#marketing-views .prompt-draft-state{font-size:10px;color:var(--mk-muted)}
+#marketing-views #prompt-detail-title{font-size:21px;letter-spacing:-.45px;scroll-margin-top:20px}
+#marketing-views .prompt-use-when{color:var(--mk-muted);font-size:12px;line-height:1.7;margin-top:7px}
+#marketing-views .prompt-brief{display:grid;grid-template-columns:1.1fr 1fr;gap:22px;margin:20px 0;padding:16px 0;border-top:1px solid var(--mk-line);border-bottom:1px solid var(--mk-line);font-size:11px;line-height:1.7;color:var(--mk-muted)}
+#marketing-views .prompt-brief h3{font-size:11px;color:var(--mk-text);margin-bottom:6px}
+#marketing-views .prompt-brief ul{margin:0;padding-left:15px}
+#marketing-views .prompt-brief li+li{margin-top:3px}
+#marketing-views .prompt-editor-heading{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+#marketing-views .prompt-editor-heading label{font-size:12px;font-weight:650}
+#marketing-views .prompt-reset{font:inherit;font-size:10px;padding:3px 0;border:0;background:transparent;text-decoration:underline;text-underline-offset:3px;color:var(--mk-accent)}
+#marketing-views .prompt-reset:disabled{color:var(--mk-muted);text-decoration:none;opacity:.7;cursor:default}
+#marketing-views .prompt-editor-help{color:var(--mk-muted);font-size:11px;line-height:1.65;margin:7px 0 12px}
+#marketing-views .prompt-context-tools{background:var(--mk-accent-soft);padding:12px;border-radius:8px;margin:12px 0;display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+#marketing-views .prompt-context-tools .prompt-button{font-size:11px;padding:7px 10px;min-height:35px}
+#marketing-views .prompt-context-tools p{font-size:10px;line-height:1.6;color:var(--mk-muted)}
+#marketing-views #prompt-editor{display:block;box-sizing:border-box;width:100%;min-width:0;max-width:100%;min-height:330px;max-height:900px;resize:vertical;border:1px solid var(--mk-line);border-radius:9px;background:var(--mk-soft);color:var(--mk-text);font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;font-size:11.5px;line-height:1.8;padding:15px;tab-size:2}
+#marketing-views .prompt-copy-row{display:flex;gap:14px;align-items:center;margin-top:14px}
+#marketing-views .prompt-button{display:inline-flex;justify-content:center;align-items:center;gap:22px;max-width:100%;font:inherit;font-size:12px;line-height:1.5;background:var(--mk-surface);border:1px solid var(--mk-line);border-radius:7px;padding:9px 13px;color:var(--mk-text);min-height:39px;cursor:pointer}
+#marketing-views .prompt-primary{background:var(--mk-accent);border-color:var(--mk-accent);color:var(--mk-on-accent);font-weight:600;flex:none}
+#marketing-views .prompt-primary>span{font-size:17px;line-height:1}
+#marketing-views .prompt-copy-status{color:var(--mk-good);font-size:11px;line-height:1.6}
+#marketing-views .prompt-storage-note{font-size:10px;color:var(--mk-muted);line-height:1.65;margin-top:10px}
+#marketing-views .prompt-next-step{display:flex;gap:11px;margin-top:19px;padding-top:16px;border-top:1px solid var(--mk-line);font-size:11px;color:var(--mk-muted);line-height:1.7}
+#marketing-views .prompt-next-step>span{color:var(--mk-text);font-weight:650;flex:none}
+#marketing-views .prompt-source{font-size:10px;color:var(--mk-muted);line-height:1.7;margin-top:12px;overflow-wrap:anywhere}
+#marketing-views .prompt-source a,#marketing-views .prompt-sources a{color:var(--mk-accent);text-underline-offset:3px}
+#marketing-views .prompt-guidance{padding:15px 18px;border-left:3px solid var(--mk-accent);background:var(--mk-accent-soft);border-radius:0 9px 9px 0;font-size:12px;line-height:1.7}
+#marketing-views .prompt-guidance>strong{color:var(--mk-text)}
+#marketing-views .prompt-guidance p{color:var(--mk-muted);font-size:11px;margin-top:3px}
+#marketing-views .prompt-sources{padding:0 2px;color:var(--mk-muted);font-size:11px;line-height:1.7}
+#marketing-views .prompt-sources h2{font-size:12px;color:var(--mk-text);margin-bottom:4px}
+#marketing-views #prompt-source-links{display:flex;gap:12px 24px;flex-wrap:wrap;margin-top:9px}
+#marketing-views #prompt-source-links p{display:flex;flex-direction:column;gap:2px;max-width:300px}
+#marketing-views #prompt-source-links p>span{font-size:10px}
+#marketing-views #prompt-library :is(button,input,textarea,a):focus-visible{outline:2px solid var(--mk-accent);outline-offset:3px}
+#marketing-views #prompt-detail-title:focus{outline:2px solid var(--mk-accent);outline-offset:4px;border-radius:2px}
+@media(max-width:1000px){#marketing-views .prompt-layout{grid-template-columns:minmax(220px,.75fr) minmax(0,1.4fr)}#marketing-views .prompt-detail{padding:18px}#marketing-views .prompt-workflow{gap:12px;padding:14px}#marketing-views .prompt-workflow small{font-size:10px}}
+@media(max-width:760px){.view-nav a:last-child{grid-column:1/-1}#marketing-views .prompt-pagehead h1{font-size:25px}#marketing-views .prompt-count-stamp{padding-left:14px}#marketing-views .prompt-count-stamp strong{font-size:30px}#marketing-views .prompt-count-stamp>span{display:none}#marketing-views .prompt-layout{grid-template-columns:1fr}#marketing-views .prompt-list{display:flex;overflow-x:auto;overflow-y:visible;max-height:none;scroll-snap-type:x proximity;padding-bottom:9px}#marketing-views .prompt-card{flex:0 0 min(80%,290px);scroll-snap-align:start}#marketing-views .prompt-workflow{gap:12px}#marketing-views .prompt-workflow li{flex-direction:column;align-items:flex-start;gap:6px}#marketing-views .prompt-workflow strong{font-size:11px}#marketing-views .prompt-workflow small{line-height:1.6}#marketing-views .prompt-search-row{gap:8px;flex-wrap:wrap}#marketing-views .prompt-results{padding-bottom:0}#marketing-views .prompt-search-field{width:100%}#marketing-views .prompt-copy-row{align-items:flex-start;flex-direction:column;gap:9px}#marketing-views #prompt-editor{font-size:12px;min-height:350px}#marketing-views .prompt-library-badge{display:none}}
+@media(max-width:440px){#marketing-views .prompt-pagehead{gap:10px}#marketing-views .prompt-pagehead h1{font-size:23px}#marketing-views .prompt-count-stamp{display:none}#marketing-views .prompt-brief{grid-template-columns:1fr;gap:12px}#marketing-views .prompt-detail{padding:16px}#marketing-views #prompt-detail-title{font-size:19px}#marketing-views .prompt-categories button{font-size:10px;padding:7px 9px}#marketing-views .prompt-workflow{gap:8px;padding:12px}#marketing-views .prompt-workflow small{font-size:9px}#marketing-views .prompt-primary{width:100%}#marketing-views .prompt-context-tools .prompt-button{font-size:10px;text-align:left}#marketing-views #prompt-search{font-size:16px}}
+@media(pointer:coarse){#marketing-views .prompt-categories button,#marketing-views .prompt-button{min-height:44px}#marketing-views .prompt-reset{min-height:32px}}
+@media(prefers-reduced-motion:reduce){#marketing-views .prompt-card{transition:none}}
