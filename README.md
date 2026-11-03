@@ -6,10 +6,16 @@ Eine eigenständige, interaktive Demo mit vier Marketing-Ansichten und ausschlie
 
 Direkt zu [Management](https://salaongithub.github.io/marketing-dashboard-demo/#management), [Paid Performance](https://salaongithub.github.io/marketing-dashboard-demo/#paid-performance), [B2B-Funnel](https://salaongithub.github.io/marketing-dashboard-demo/#b2b-funnel) oder [Content & Social](https://salaongithub.github.io/marketing-dashboard-demo/#content-social).
 
-- **Management:** Umsatz- oder Lead-Verlauf umschalten; Budgetziele und Kanalbeiträge vergleichen.
-- **Paid Performance:** Werbekanal auswählen und ROAS oder Kosten je Lead vergleichen.
-- **B2B-Funnel:** Zusammengehörige Lead-Kohorte mit Übergangsraten und CRM-Ergebnissen.
-- **Content & Social:** Impressionen oder Leads je Kanal und erfolgreichste Inhalte ansehen.
+- **Management:** tägliche Umsatz- oder Lead-Verläufe mit dem vorherigen Zeitraum vergleichen, einzelne Tage per Maus oder Regler erkunden.
+- **Paid Performance:** Werbekanal auswählen; ROAS, Kosten je Lead und Veränderungen zum Vergleichszeitraum ansehen.
+- **B2B-Funnel:** Entwicklung derselben Juli-Kohorte verfolgen; Monatsendstände bis Oktober und Fortschritt seit Ende September vergleichen.
+- **Content & Social:** Impressionen, Engagementrate, Sitzungen und Leads mit dem vorherigen Zeitraum vergleichen.
+
+## Zeitvergleiche und Erklärungen
+
+„Letzter Monat“ vergleicht den vollständigen Oktober 2026 mit September 2026. „Letzte Woche“ vergleicht 26. Oktober–1. November mit 19.–25. Oktober 2026. Alle periodischen KPIs, Tabellen und Verläufe ändern sich gemeinsam. Die Tagesdaten stammen aus demselben fiktiven Datensatz; überlappende Kalendertage bleiben beim Umschalten identisch. Monatswerte sind Summen über 31 bzw. 30 Tage. ROAS, Kosten je Lead und Engagementrate werden aus den jeweiligen Summen berechnet.
+
+Änderungen von Raten stehen in Prozentpunkten. Die feste Juli-Kohorte ist bewusst unabhängig vom Wochen-/Monatsumschalter. Die ?-Schaltflächen erklären Begriffe, Berechnung und Grenzen per Hover, Tastaturfokus oder Klick/Tap; Escape schließt die Erklärung.
 
 ## Hosting
 
