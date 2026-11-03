@@ -6,7 +6,7 @@
   <meta name="description" content="Marketing verstehen: interaktive Dashboards mit Zeitvergleichen und KPI-Erklärungen sowie praktische Marketing-Prompts zum Anpassen und Kopieren. Alle Dashboard-Daten sind fiktiv.">
   <meta name="theme-color" content="#6354d7">
   <title>Pulse Marketing-Dashboards</title>
-  <link rel="stylesheet" href="./styles.css?v=4">
+  <link rel="stylesheet" href="./styles.css?v=5">
   <script src="./app.js?v=4" defer></script>
   <script src="./prompts-data.js?v=4" defer></script>
   <script src="./prompts.js?v=4" defer></script>
@@ -41,7 +41,7 @@
   <p id="cohort-context" class="cohort-context" hidden>Feste Juli-Kohorte · Entwicklung derselben Kontakte bis 31.10.2026, unabhängig vom Monats- oder Wochenbericht.</p>
   <noscript><p class="noscript">Bitte JavaScript aktivieren, um die Dashboard-Daten, Vergleiche und Erklärungen zu öffnen.</p></noscript>
   <div id="dashboards">
-    <div id="marketing-views" aria-label="Marketing-Dashboards und Prompt-Bibliothek" data-version="4">
+    <div id="marketing-views" aria-label="Marketing-Dashboards und Prompt-Bibliothek" data-version="5">
       <section id="view-management" data-view="management" aria-labelledby="nav-management">
         <div class="mk-window" data-design="overview">
           <header class="mk-chrome"><div class="mk-brand"><span class="mk-logo">p.</span><strong>pulse</strong><span class="mk-divider"></span><span class="mk-workspace">Nordlicht / Marketing</span></div><span class="mk-demo"><span></span>Beispieldaten</span></header>
@@ -95,6 +95,26 @@
           <header class="mk-chrome"><div class="mk-brand"><span class="mk-logo">p.</span><strong>pulse</strong><span class="mk-divider"></span><span class="mk-workspace">Marketing / Werkzeugkasten</span></div><span class="prompt-library-badge">Prompt-Bibliothek</span></header>
           <main class="mk-main" id="prompt-library">
             <div class="mk-pagehead prompt-pagehead"><div><div class="mk-eyebrow">VON DER IDEE ZUM GUTEN BRIEFING</div><h1>Ein besserer Start für deine KI.</h1><p class="mk-sub">Marketing-Prompts auswählen, anpassen und im KI-Tool deiner Wahl verwenden.</p></div><div class="prompt-count-stamp"><strong id="prompt-total">12</strong><span>Vorlagen<br>für deinen Alltag</span></div></div>
+            <details class="prompt-guide" id="prompt-guide">
+              <summary><span class="prompt-guide-icon" aria-hidden="true">?</span><span class="prompt-guide-heading"><strong>Prompt-Guide: besser briefen in 2 Minuten</strong><small>Die Grundlagen · ein Beispiel · hilfreiche Nachfragen</small></span><span class="prompt-guide-toggle" aria-hidden="true">+</span></summary>
+              <div class="prompt-guide-body">
+                <p class="prompt-guide-intro">Ein guter Prompt ist ein kurzes Briefing. Erkläre die Aufgabe so, dass jemand ohne Vorwissen damit arbeiten könnte.</p>
+                <div class="prompt-guide-grid">
+                  <section aria-labelledby="guide-building-blocks"><h2 id="guide-building-blocks">Dein Baukasten</h2><ol class="prompt-guide-parts">
+                    <li><strong>Ziel</strong><span>Was möchtest du erreichen?</span></li>
+                    <li><strong>Kontext</strong><span>Für wen, auf welchem Kanal und in welchem Ton?</span></li>
+                    <li><strong>Material</strong><span>Welche Fakten, Texte oder Beispiele soll die KI nutzen?</span></li>
+                    <li><strong>Auftrag</strong><span>Was genau soll sie erstellen? Teile große Aufgaben in Etappen.</span></li>
+                    <li><strong>Format</strong><span>Nenne Länge, Gliederung und gewünschte Darstellung.</span></li>
+                  </ol></section>
+                  <section aria-labelledby="guide-example"><h2 id="guide-example">Vom Wunsch zum klaren Auftrag</h2><div class="prompt-guide-example prompt-guide-vague"><span>Noch sehr offen</span><p>„Mach uns einen guten LinkedIn-Post.“</p></div><div class="prompt-guide-example"><span>Konkreter</span><p>„Entwirf drei LinkedIn-Post-Ideen für [ZIELGRUPPE] zu [ANGEBOT]. Ziel: [ZIEL]. Nutze nur diese freigegebenen Fakten: [MATERIAL]. Ton: verständlich und sachlich. Liefere eine Tabelle mit Einstieg, Kernbotschaft und Handlungsaufforderung. Frage nach, wenn wichtige Angaben fehlen.“</p></div></section>
+                </div>
+                <section class="prompt-guide-followup" aria-labelledby="guide-followup"><h2 id="guide-followup">Mit Nachfragen wird der Entwurf besser</h2><ul><li>„Kürze Variante 2 auf 80 Wörter. Behalte die Kernbotschaft.“</li><li>„Das ist noch zu allgemein. Beziehe dich konkret auf [BEISPIEL].“</li><li>„Welche Aussagen sind unklar oder unbelegt? Schlage passende Prüfungen vor.“</li></ul></section>
+                <p class="prompt-guide-check"><strong>Vor der Verwendung prüfen:</strong> Kontrolliere Zahlen, Quellen und Versprechen selbst. Verwende nur dafür freigegebenes Material und anonymisiere Kundendaten.</p>
+                <p class="prompt-guide-takeaway">Du brauchst keinen perfekten ersten Prompt: ausprobieren, konkret nachbessern und erneut prüfen.</p>
+                <p class="prompt-guide-sources">Grundlagen: <a href="https://aistudio.google.com/docs/prompting-strategies" target="_blank" rel="noopener noreferrer">Google – Prompt design strategies</a> und <a href="https://support.claude.com/en/articles/7996857-my-prompt-isn-t-giving-me-a-helpful-answer" target="_blank" rel="noopener noreferrer">Anthropic – hilfreiche Prompts</a>. Eigenständig formulierte Beispiele.</p>
+              </div>
+            </details>
             <ol class="prompt-workflow" aria-label="So verwendest du die Vorlagen"><li><span>1</span><div><strong>Aufgabe wählen</strong><small>Was möchtest du erreichen?</small></div></li><li><span>2</span><div><strong>Kontext ergänzen</strong><small>Platzhalter mit deinen Angaben ersetzen.</small></div></li><li><span>3</span><div><strong>Kopieren & loslegen</strong><small>Im KI-Tool einfügen und Ergebnis prüfen.</small></div></li></ol>
             <section class="prompt-explorer" aria-label="Vorlagen finden">
               <div class="prompt-search-row"><div class="prompt-search-field"><label for="prompt-search">Welche Marketing-Aufgabe steht an?</label><input type="search" id="prompt-search" placeholder="Zum Beispiel: Content-Plan, Leads, Landingpage …" autocomplete="off" aria-controls="prompt-list"></div><p id="prompt-results" class="prompt-results" role="status" aria-live="polite"></p></div>

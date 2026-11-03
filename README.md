@@ -14,6 +14,8 @@ Direkt zu [Management](https://salaongithub.github.io/marketing-dashboard-demo/#
 
 ## Marketing-Prompts verwenden
 
+Ein aufklappbarer **Prompt-Guide** oberhalb der Vorlagen erklärt die fünf Bausteine Ziel, Kontext, Material, Auftrag und Format. Ein Marketing-Beispiel, konkrete Nachfragen und eine kurze Ergebnisprüfung helfen beim Einstieg. Die Hinweise sind eigenständig formuliert und verlinken die Grundlagen von Google und Anthropic.
+
 Aufgabe auswählen, Platzhalter in eckigen Klammern ersetzen und den Prompt kopieren. Im KI-Tool der eigenen Wahl einfügen und die Antwort prüfen. Die Website selbst führt keine KI-Anfragen aus. Ein Klick auf **„Original wiederherstellen“** setzt den jeweiligen Entwurf zurück. Die Kopierfunktion meldet Erfolg oder markiert den Text zur manuellen Übernahme, falls der Browser keinen Zugriff auf die Zwischenablage erlaubt.
 
 Die Vorlage **„KPI-Veränderungen verstehen“** übernimmt auf Wunsch über **„Aktuellen Dashboard-Vergleich einfügen“** die aktuell angewendeten Zeiträume und aggregierten KPI-Werte. Der eingefügte Vergleich ist ausdrücklich als fiktiv gekennzeichnet; erneutes Einfügen aktualisiert denselben Block. Die feste B2B-Kohorte wird dabei nicht mit periodischen Summen vermischt. Die Datumsfilter werden in einer Dashboard-Ansicht eingestellt und gelten beim Wechsel zur Prompt-Bibliothek weiter.
